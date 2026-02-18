@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=catppuccin-mocha
+Comment=Catppuccin Mocha GNOME Shell user theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Adwaita
+MetacityTheme=Adwaita
+IconTheme=Adwaita
+CursorTheme=Adwaita
+ButtonLayout=close,minimize,maximize:appmenu
