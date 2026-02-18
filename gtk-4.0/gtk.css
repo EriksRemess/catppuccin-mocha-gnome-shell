@@ -1,0 +1,107 @@
+/* Catppuccin Mocha semantic accents */
+@define-color accent_bg_color      #89b4fa; /* blue */
+@define-color destructive_bg_color #f38ba8; /* red */
+@define-color success_bg_color     #a6e3a1; /* green */
+@define-color warning_bg_color     #fab387; /* peach (more “warning” than pale yellow) */
+@define-color error_bg_color       #f38ba8; /* red */
+@define-color accent_fg_color      #11111b; /* crust text on accent backgrounds */
+@define-color destructive_fg_color #11111b; /* crust text on destructive backgrounds */
+@define-color success_fg_color     #11111b; /* crust text on success backgrounds */
+@define-color warning_fg_color     #11111b; /* crust text on warning backgrounds */
+@define-color error_fg_color       #11111b; /* crust text on error backgrounds */
+
+/* Derived “ink” colors for DARK theme (keep max(), drop the light-theme min() variants) */
+@define-color accent_color      oklab(from @accent_bg_color      max(l, 0.85) a b);
+@define-color destructive_color oklab(from @destructive_bg_color max(l, 0.85) a b);
+@define-color success_color     oklab(from @success_bg_color     max(l, 0.85) a b);
+@define-color warning_color     oklab(from @warning_bg_color     max(l, 0.85) a b);
+@define-color error_color       oklab(from @error_bg_color       max(l, 0.85) a b);
+
+/* Window */
+@define-color window_bg_color #1e1e2e;  /* base */
+@define-color window_fg_color #cdd6f4;  /* text */
+
+/* Views - e.g. text view or tree view */
+@define-color view_bg_color #181825;    /* mantle */
+@define-color view_fg_color #cdd6f4;    /* text */
+
+/* Header bar, search bar, tab bar */
+@define-color headerbar_bg_color #313244;         /* surface0 */
+@define-color headerbar_fg_color #cdd6f4;         /* text */
+@define-color headerbar_border_color #585b70;     /* surface2 */
+@define-color headerbar_shade_color RGB(17 17 27 / 36%);        /* crust @ 36% */
+@define-color headerbar_darker_shade_color RGB(17 17 27 / 90%); /* crust @ 90% */
+
+/* Split pane views */
+@define-color sidebar_bg_color #313244;           /* surface0 */
+@define-color sidebar_fg_color #cdd6f4;           /* text */
+@define-color sidebar_backdrop_color #181825;     /* mantle */
+@define-color sidebar_shade_color RGB(17 17 27 / 25%);          /* crust @ 25% */
+@define-color sidebar_border_color RGB(17 17 27 / 36%);         /* crust @ 36% */
+
+@define-color secondary_sidebar_bg_color #181825;           /* mantle */
+@define-color secondary_sidebar_fg_color #cdd6f4;           /* text */
+@define-color secondary_sidebar_backdrop_color #11111b;     /* crust */
+@define-color secondary_sidebar_shade_color RGB(17 17 27 / 25%);
+@define-color secondary_sidebar_border_color RGB(17 17 27 / 36%);
+
+/* Cards, boxed lists */
+@define-color card_bg_color #313244;                 /* surface0 for stronger card/background separation */
+@define-color card_fg_color #cdd6f4;                 /* text */
+@define-color card_shade_color RGB(17 17 27 / 36%);  /* crust @ 36% */
+
+/* Dialogs */
+@define-color dialog_bg_color #45475a;  /* surface1 */
+@define-color dialog_fg_color #cdd6f4;  /* text */
+
+/* Popovers */
+@define-color popover_bg_color #45475a; /* surface1 */
+@define-color popover_fg_color #cdd6f4; /* text */
+@define-color popover_shade_color RGB(17 17 27 / 25%);
+
+/* Thumbnails */
+@define-color thumbnail_bg_color #585b70; /* surface2 */
+@define-color thumbnail_fg_color #cdd6f4; /* text */
+
+/* Miscellaneous */
+@define-color shade_color RGB(17 17 27 / 25%);             /* crust @ 25% */
+@define-color scrollbar_outline_color RGB(17 17 27 / 95%); /* crust @ 95% */
+
+/* Stronger contrast for actionable buttons in libadwaita/GTK4 apps */
+button.suggested-action {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+}
+
+button.suggested-action:hover {
+  background-color: #9ec1fb;
+  color: @accent_fg_color;
+}
+
+button.suggested-action:active {
+  background-color: #74a7f8;
+  color: @accent_fg_color;
+}
+
+button.destructive-action {
+  background-color: @destructive_bg_color;
+  color: @destructive_fg_color;
+}
+
+button.destructive-action:hover {
+  background-color: #f59eb5;
+  color: @destructive_fg_color;
+}
+
+button.destructive-action:active {
+  background-color: #ea7898;
+  color: @destructive_fg_color;
+}
+
+/* Make cards and boxed list rows stand out from base background */
+.card,
+.boxed-list,
+list.boxed-list {
+  background-color: @card_bg_color;
+  color: @card_fg_color;
+}
