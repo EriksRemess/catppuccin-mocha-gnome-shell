@@ -1,0 +1,191 @@
+/* Catppuccin Mocha overrides for GTK3 window decorations */
+@define-color cat_crust #11111b;
+@define-color cat_mantle #181825;
+@define-color cat_base #1e1e2e;
+@define-color cat_surface0 #313244;
+@define-color cat_surface1 #45475a;
+@define-color cat_surface2 #585b70;
+@define-color cat_text #cdd6f4;
+@define-color cat_subtext0 #a6adc8;
+@define-color cat_lavender #b4befe;
+
+headerbar,
+.titlebar,
+window.ssd headerbar.titlebar {
+    background-color: @cat_surface0;
+    background-image: none;
+    color: @cat_text;
+    border-color: @cat_surface2;
+    box-shadow: inset 0 -1px @cat_surface2;
+}
+
+headerbar:backdrop,
+.titlebar:backdrop,
+window.ssd headerbar.titlebar:backdrop {
+    background-color: @cat_mantle;
+    color: @cat_subtext0;
+    border-color: @cat_surface1;
+    box-shadow: inset 0 -1px @cat_surface1;
+}
+
+headerbar .title,
+headerbar .subtitle,
+.titlebar .title,
+.titlebar .subtitle {
+    color: @cat_text;
+}
+
+headerbar button.titlebutton,
+.titlebar button.titlebutton {
+    background-image: none;
+    background-color: transparent;
+    color: @cat_text;
+    border-color: transparent;
+    box-shadow: none;
+    border-radius: 999px;
+}
+
+headerbar button.titlebutton:hover,
+.titlebar button.titlebutton:hover {
+    background-color: @cat_surface1;
+    color: @cat_text;
+}
+
+headerbar button.titlebutton:active,
+headerbar button.titlebutton:checked,
+.titlebar button.titlebutton:active,
+.titlebar button.titlebutton:checked {
+    background-color: @cat_surface2;
+    color: @cat_text;
+}
+
+decoration {
+    border: 1px solid @cat_mantle;
+    border-radius: 12px 12px 0 0;
+    box-shadow: none;
+}
+
+decoration:backdrop {
+    border-color: @cat_mantle;
+    box-shadow: none;
+}
+
+/* Avoid fullscreen/maximized artifacts (Slack/Electron GTK3) */
+decoration:fullscreen,
+decoration:maximized,
+window.fullscreen decoration,
+window.maximized decoration,
+.maximized decoration {
+    border-radius: 0;
+    border-width: 0;
+    box-shadow: none;
+}
+
+window.fullscreen headerbar,
+window.fullscreen .titlebar,
+window.maximized headerbar,
+window.maximized .titlebar,
+.maximized headerbar,
+.maximized .titlebar {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Slack/Electron GTK3 safeguard: CSD decoration effects can glitch in fullscreen/maximized */
+window.background.csd decoration,
+window.csd decoration,
+.background.csd decoration {
+    border-radius: 12px 12px 0 0;
+    border-color: @cat_mantle;
+    box-shadow: none;
+}
+
+window.background.csd headerbar,
+window.background.csd .titlebar,
+window.csd headerbar,
+window.csd .titlebar,
+.background.csd headerbar,
+.background.csd .titlebar {
+    background-color: @cat_mantle;
+    color: @cat_text;
+    border-color: @cat_surface1;
+    box-shadow: inset 0 -1px @cat_surface1;
+}
+
+window.background.csd headerbar:backdrop,
+window.background.csd .titlebar:backdrop,
+window.csd headerbar:backdrop,
+window.csd .titlebar:backdrop,
+.background.csd headerbar:backdrop,
+.background.csd .titlebar:backdrop {
+    background-color: @cat_crust;
+    color: @cat_subtext0;
+    border-color: @cat_surface0;
+    box-shadow: inset 0 -1px @cat_surface0;
+}
+
+window.background.csd button.titlebutton:hover,
+window.csd button.titlebutton:hover,
+.background.csd button.titlebutton:hover {
+    background-color: @cat_surface0;
+}
+
+window.background.csd button.titlebutton:active,
+window.background.csd button.titlebutton:checked,
+window.csd button.titlebutton:active,
+window.csd button.titlebutton:checked,
+.background.csd button.titlebutton:active,
+.background.csd button.titlebutton:checked {
+    background-color: @cat_surface1;
+    color: @cat_text;
+}
+
+window.background.csd.fullscreen decoration,
+window.background.csd.maximized decoration,
+window.background.csd.tiled decoration,
+window.csd.fullscreen decoration,
+window.csd.maximized decoration,
+window.csd.tiled decoration,
+.background.csd.fullscreen decoration,
+.background.csd.maximized decoration,
+.background.csd.tiled decoration {
+    border-radius: 0;
+    border-width: 0;
+    box-shadow: none;
+}
+
+window.background.csd.fullscreen headerbar,
+window.background.csd.maximized headerbar,
+window.background.csd.tiled headerbar,
+window.csd.fullscreen headerbar,
+window.csd.maximized headerbar,
+window.csd.tiled headerbar,
+.background.csd.fullscreen headerbar,
+.background.csd.maximized headerbar,
+.background.csd.tiled headerbar,
+window.background.csd.fullscreen .titlebar,
+window.background.csd.maximized .titlebar,
+window.background.csd.tiled .titlebar,
+window.csd.fullscreen .titlebar,
+window.csd.maximized .titlebar,
+window.csd.tiled .titlebar,
+.background.csd.fullscreen .titlebar,
+.background.csd.maximized .titlebar,
+.background.csd.tiled .titlebar {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Regular GTK3 menus: keep content colors, restore visible dark-gray border */
+menu,
+.menu {
+    border: 1px solid #3a3a3a !important;
+    box-shadow: 0 0 0 1px rgba(58, 58, 58, 0.85) !important;
+    outline: none !important;
+    background-clip: padding-box;
+}
+
+menu:backdrop,
+.menu:backdrop {
+    box-shadow: 0 0 0 1px rgba(58, 58, 58, 0.75) !important;
+}
