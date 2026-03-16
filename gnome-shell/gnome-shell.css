@@ -4115,32 +4115,36 @@ StEntry StIcon.capslock-warning {
   background-color: #181825 !important; /* GNOME gray control base -> Catppuccin Mocha mantle */
   color: #cdd6f4 !important; /* GNOME white/day text -> Catppuccin Mocha text */
   border-color: #313244 !important; /* GNOME gray border -> Catppuccin Mocha surface0 */
+  border-radius: 6px !important;
+  margin: 1px !important;
+  width: 2.75em;
+  height: 2.75em;
 }
 
 .calendar .calendar-day:hover,
 .calendar .calendar-day:focus,
 .calendar .calendar-day:focus:hover {
-  background-color: #1e1e2e !important; /* GNOME hover gray -> Catppuccin Mocha base */
+  background-color: rgba(137, 180, 250, 0.10) !important; /* subtle blue-tinted hover instead of near-base gray */
   color: #cdd6f4 !important; /* keep Catppuccin Mocha text contrast */
-  border-color: #45475a !important; /* GNOME lighter gray edge -> Catppuccin Mocha surface1 */
+  border-color: rgba(137, 180, 250, 0.28) !important; /* blue edge so hover reads distinctly from base */
 }
 
-/* Current day: make highlight less bright than lavender */
+/* Current day: stronger accent tint so it reads as "today" without going full bright accent */
 .calendar .calendar-day.calendar-today,
 .calendar .calendar-day.calendar-today:hover,
 .calendar .calendar-day.calendar-today:focus,
 .calendar .calendar-day.calendar-today:focus:hover {
-  background-color: #313244 !important; /* GNOME bright accent fill -> Catppuccin Mocha surface0 (darker) */
+  background-color: rgba(137, 180, 250, 0.20) !important; /* blue-tinted fill, clearer than gray */
   color: #cdd6f4 !important; /* GNOME accent fg -> Catppuccin Mocha text */
-  border-color: #45475a !important; /* GNOME accent border -> Catppuccin Mocha surface1 */
+  border-color: rgba(137, 180, 250, 0.48) !important; /* define today with a crisp accent edge */
 }
 
 .calendar .calendar-day.calendar-today:selected,
 .calendar .calendar-day.calendar-today:active,
 .calendar .calendar-day.calendar-today:checked {
-  background-color: #45475a !important; /* GNOME bright selected accent -> Catppuccin Mocha surface1 (dimmer) */
+  background-color: rgba(137, 180, 250, 0.30) !important; /* stronger pressed/selected state for today */
   color: #cdd6f4 !important; /* GNOME accent fg -> Catppuccin Mocha text */
-  border-color: #585b70 !important; /* selected/active border -> Catppuccin Mocha surface2 */
+  border-color: #89b4fa !important; /* solid accent edge for active today */
 }
 
 /* Date/notification dropdown labels: replace remaining GNOME gray text with Catppuccin Mocha text tones */
@@ -4421,4 +4425,34 @@ StEntry StIcon.capslock-warning {
   background-color: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
+}
+
+/* Panel clock: keep hover/checked background on the inner capsule only */
+#panel .panel-button.clock-display,
+#panel .panel-button.clock-display:hover,
+#panel .panel-button.clock-display:focus,
+#panel .panel-button.clock-display:active,
+#panel .panel-button.clock-display:checked,
+#panel .panel-button.clock-display:overview {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#panel .panel-button.clock-display .clock {
+  color: inherit;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#panel .panel-button.clock-display:hover .clock,
+#panel .panel-button.clock-display:focus .clock {
+  background-color: #313244 !important; /* Catppuccin Mocha surface0 */
+  box-shadow: inset 0 0 0 100px rgba(49, 50, 68, 0.55) !important;
+}
+
+#panel .panel-button.clock-display:active .clock,
+#panel .panel-button.clock-display:checked .clock,
+#panel .panel-button.clock-display:overview .clock {
+  background-color: #45475a !important; /* Catppuccin Mocha surface1 */
+  box-shadow: inset 0 0 0 100px rgba(69, 71, 90, 0.8) !important;
 }
